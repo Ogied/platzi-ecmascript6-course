@@ -105,3 +105,49 @@ let helloPromise = () => {
 helloPromise()
     .then(result => console.log(result))
     .catch(err => console.log(err));
+
+// Class, modules & generators.
+
+// Class
+class calculator {
+    constructor() {
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+    
+    sum(valueA, valueB) {
+        // this.valueA = valueA;
+        // this.valueB = valueB;
+        return valueA + valueB;
+    }
+}
+
+const calc = new calculator();
+console.log(calc.sum(2, 2));
+
+// modules
+import { hello } from './module';
+console.log(hello());
+
+/**
+ *  Generators - They return values based in the algorithm
+ * Through the yield special word, we save the state.
+ * .next property returns the state of the generator.
+ * .value returns the value of the current state.
+ * If no more states are stored the generator will return undefined.
+ */
+// Generators - They return values based in the algorithm
+// .next property returns the state of the generator.
+// .value returns the value of that state
+function* helloWorld() {
+    if (true) {
+        yield 'hello, ';
+    }
+    if (true) {
+        yield 'World';
+    }
+};
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
