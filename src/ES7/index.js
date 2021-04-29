@@ -8,8 +8,8 @@ if (numbers.includes(2)) {
     console.log('number doesn\'t exist');
 }
 
-// Exponent
+// Exponent - with this new way, we avoid having to call math.pow.
 let base = 4;
 let exponent = 3;
-let result = Math.pow(base, exponent);
+let result = base ** exponent;
 console.log(result);
