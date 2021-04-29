@@ -61,3 +61,47 @@ console.log(education);
 console.log(globalVar);
 
 const a = 'b';
+
+// Start of chapter 2 - Arrow functions, promises and object parameters
+let name = 'ogied';
+let age = 26;
+// es5 - object props
+obj = {name: name, age: age};
+// es6
+obj2 = { name, age};
+console.log(obj2);
+
+// arrow functions
+const names = [
+    { name: 'jett', age: 23 }, 
+    { name: 'phoenix', age: 22 }
+];
+
+// ES5
+let listOfName2 = names.map(function(item) {
+    console.log(item);
+    return item.name;
+});
+
+/**
+ * ES6 Version. Important points:
+ * If we are simply returning a value, we don't have to add the return statement. Simply put the parameter.
+ * If we are using only one param, we don't need to add the parenthesis.
+ * Arrow functions have there own context. If we want to use the global one we would need to call bind and pass 'this'.
+ */
+const listOfNames2 = names.map(item => item.name);
+const square = num => num * num;
+
+// Promises - They allow us to handle async task in a more friendly way and getting rid of the callbacks.
+let helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if (true) {
+            resolve('hey, everything is ok');
+        } else {
+            reject('Something went wrong');
+        }
+    });
+};
+helloPromise()
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
